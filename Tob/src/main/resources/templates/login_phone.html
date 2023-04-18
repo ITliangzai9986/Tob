@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="skcats">
+        <!-- Title -->
+        <title>管理员手机验证登录界面</title>
+        <!-- Styles -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Theme Styles -->
+        <link href="assets/css/ecaps.min.css" rel="stylesheet">
+		<!-- 修改样式 -->
+		<style type="text/css">
+			.row{
+				background-image: url(assets/imgs/Tob_img/LV_W/LV_wrap/LV_W_P_002.jpg);
+				background-repeat: round;
+				display: flex;
+				position: relative;
+			}
+			.right-t{
+				text-align: center;
+				/* font-family: "楷体"; */
+				margin-top: 5%;
+				margin-left: 65%;
+			}
+			span{
+				color: red;
+			}
+		</style>
+		
+    </head>
+    <body>
+        
+        <!-- Page Container -->
+        <div class="page-container">
+                <!-- Page Inner -->
+                <div class="page-inner login-page">
+                    <div id="main-wrapper" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 login-box">
+                                <h4 class="login-title">手机验证码登录</h4>
+                                <form action="index.html" id="myForm">
+                                    <div class="form-group">
+                                        <label >手机号码：</label>
+                                        <input type="text" class="form-control" id="phoneNum" onkeyup="checkPhone(this)" ><span id="l1"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >验证码：</label>
+                                        <input type="text" class="form-control" id="NumTest" onkeyup="checkTest(this)" ><span id="l2"></span>
+										<br>
+										<a href="#" class="btn btn-primary">获取验证码</a>
+                                    </div>
+									<button href="index.html" class="btn btn-primary">登录</button>
+									<a href="login.html" class="btn btn-primary">账号登录</a>
+                                    <a href="register.html" class="btn btn-default">注册</a>
+									<br>
+                                    <a href="forget.html" class="forgot-link">忘记密码?</a>
+                                </form>
+                            </div>
+								<div class="right-t">
+									<h2>Tide of Business</h2>
+									<h3>潮易</h3>
+								</div>
+                        </div>
+                    </div>
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+        
+		<script>
+		    //用来检查名字是否合规
+		    function checkPhone() {
+		        /*定义一个值拿到姓名输入框值的长度*/
+		        var length = phoneNum.value.length
+		        if (length > 0) {//里面有内容
+		            //名字的大小应该在 8-12 之间（定义值的长度）
+		            if (length == 11 ) {
+		                l1.textContent = "😊"
+		                return true
+		            }
+		            //不在区间之内
+		            l1.textContent = "手机号码格式有误"
+		            //必须return一个值，否则会被覆盖，return有中断的作用
+		            return false
+		        }
+		        //里面没有内容
+		        l1.textContent = "请输入手机号码"
+		        return false
+		    }
+		 
+		    //用来检查密码是否合规
+		    function checkTest() {
+		        var length = NumTest.value.length
+		        if (length > 0) {//里面有内容
+		            //名字的大小应该在 8-12 之间
+		            if (length == 4) {
+		                l2.textContent = "😊"
+		                return true
+		            }
+		            //不在区间之内
+		            l2.textContent = "验证码格式有误"
+		            return false
+		        }
+		        //里面没有内容
+		        l2.textContent = "请获取验证码登录"
+		        return false
+		    }
+		 
+		    //添加提交事件(会具备返回值)
+		    myForm.onsubmit = () => {
+		        var f1 = checkPhone()
+		        var f2 = checkTest()
+		        return f1 && f2 
+		    }
+		</script>
+
+    </body>
+</html>

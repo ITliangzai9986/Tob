@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="skcats">
+        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- Title -->
+        <title>管理员账号注册页面</title>
+        <!-- Styles -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Theme Styles -->
+        <link href="assets/css/ecaps.min.css" rel="stylesheet">
+		
+		<!-- 修改样式 -->
+		<style type="text/css">
+			.row{
+				background-image: url(assets/imgs/Tob_img/LV_M/LV_wrap/LV_M_P_001.jpg);
+				background-repeat: round;
+				display: flex;
+				position: relative;
+			}
+			.right-t{
+				text-align: center;
+				/* font-family: "楷体"; */
+				margin-top: 5%;
+				margin-left: 65%;
+			}
+			span{
+				color: red;
+			}
+		</style>
+
+    </head>
+    <body>
+        <!-- Page Container -->
+        <div class="page-container">
+                <!-- Page Inner -->
+                <div class="page-inner login-page">
+                    <div id="main-wrapper" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 login-box">
+                                <h4 class="login-title">账号注册：</h4>
+                                <form action="login.html" id="myForm">
+                                    <div class="form-group">
+                                        <label>用户账号：</label>
+                                        <input type="text" class="form-control" id="userNum" onkeyup="checkNum(this)" placeholder="请设置一个11位数字账号"><span id="l1"></span>
+                                    </div>
+									<div class="form-group">
+									    <label>用户名：</label>
+									    <input type="text" class="form-control" id="userName" onkeyup="checkName(this)" placeholder="请设置用户名(4-8位)"><span id="l2"></span>
+									</div>
+                                    <div class="form-group">
+                                        <label>密码：</label>
+                                        <input type="text" class="form-control" id="password1" onkeyup="checkPwd1(this)" placeholder="请设置登录密码(8-12位)"><span id="l3"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>确认密码：</label>
+                                        <input type="text" class="form-control" id="password2" onkeyup="checkPwd2(this)" placeholder="请确认密码"><span id="l4"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >手机号码：</label>
+                                        <input type="text" class="form-control" id="phoneNum" onkeyup="checkPhone(this)" placeholder="请输入手机号码"><span id="l5"></span>
+                                    </div>
+									<div class="form-group">
+									    <label >邮箱：</label>
+									    <input type="email" class="form-control" id="email" onkeyup="checkEmail(this)" placeholder="请输入邮箱账号"><span id="l6"></span>
+									</div>
+									<div class="form-group">
+									    <label >验证码：</label>
+									    <input type="text" class="form-control" id="numTest" onkeyup="checkTest(this)"><span id="l7"></span>
+										<br>
+										<a href="#" class="btn btn-primary">获取验证码</a><br>
+									</div>
+                                    <button  class="btn btn-primary">注册</button>
+                                    <a href="login.html" class="btn btn-default">登录</a>
+                                </form>
+                            </div>
+							<div class="right-t">
+								<h1>Tide of Business</h1>
+								<h2>潮易</h2>
+							</div>
+                        </div>
+                    </div>
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+
+		<script>
+		    function checkNum(){
+		        var length = userNum.value.length
+		        if (length > 0) {
+		            if (length == 11) {
+		                l1.textContent = "😊"
+		                return true
+		            }
+		            l1.textContent = "长度必须是11"
+		            return false
+		        }
+		        l1.textContent = "请输入账号"
+		        return false
+		    }
+		    function checkName() {
+		        var length = userName.value.length
+		        if (length > 0) {
+		            if (length >=4 && length <= 8) {
+		                l2.textContent = "😊"
+		                return true
+		            }
+		            l2.textContent = "长度必须在4-8之间"
+		            return false
+		        }
+		        l2.textContent = "请输入用户名"
+		        return false
+		    }
+		 
+		    function checkPwd1() {
+		        var length = password1.value.length
+		        if (length > 0) {
+		            if (length >= 8 && length <= 12) {
+		                l3.textContent = "😊"
+		                return true
+		            }
+		            l3.textContent = "长度必须在8-12之间"
+		            return false
+		        }
+		        l3.textContent = "请输入密码"
+		        return false
+		    }
+			function checkPwd2() {
+			    var length = password2.value.length
+			    if (length > 0) {
+			        if (length >= 8 && length <= 12) {
+			            l4.textContent = "😊"
+			            return true
+			        }
+			        l4.textContent = "长度必须在8-12之间"
+			        return false
+			    }
+			    l4.textContent = "请再次输入密码"
+			    return false
+			}
+			function checkPhone() {
+			    var length = phoneNum.value.length
+			    if (length > 0) {
+			        if (length == 11) {
+			            l5.textContent = "😊"
+			            return true
+			        }
+			        l5.textContent = "手机号码格式有误"
+			        return false
+			    }
+			    l5.textContent = "请输入手机号码"
+			    return false
+			}
+			function checkEmail() {
+			    var length = email.value.length
+			    if (length > 0) {
+					return true
+			    }
+			    l6.textContent = "请输入邮箱"
+			    return false
+			}
+			function checkTest() {
+			    var length = numTest.value.length
+			    if (length > 0) {
+					if (length == 4) {
+					    l7.textContent = "😊"
+					    return true
+					}
+					l7.textContent = "验证码有误"
+					return false
+			    }
+			    l7.textContent = "请获取验证码"
+			    return false
+			}
+			function pwdTest(){
+				var pwd1 = password1.value
+				var pwd2 = password2.value
+				if(pwd1 != pwd2){
+					l4.textContent="两次密码输入不一致"
+					return false
+				}
+				return true
+			}
+		 
+		    //添加提交事件(会具备返回值)
+		    myForm.onsubmit = () => {
+		        var f1 = checkNum()
+		        var f2 = checkName()
+		        var f3 = checkPwd1()
+				var f4 = checkPwd2()
+				var f5 = checkPhone()
+				var f6 = checkEmail()
+				var f7 = checkTest()
+				var f8 = pwdTest()
+		        return f1 && f2 && f3 && f4 && f5 && f6 &&f7 && f8
+		    }
+       </script>
+    </body>
+</html>

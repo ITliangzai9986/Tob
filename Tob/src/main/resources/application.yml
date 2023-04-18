@@ -1,0 +1,54 @@
+server:
+  port: 8090
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tob?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 8
+      max-active: 16
+      min-idle: 1
+  thymeleaf:
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+
+  web:
+    resources:
+      static-locations: classpath:/templates/,classpath:/static/
+  main:
+    allow-circular-references: true
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+
+#分页插件配置
+pagehelper:
+  # 数据库语言
+  helper-dialect: mysql
+  # 分页参数合理化（当pageNum(当前页)<1或pageNum>总页数时 pageNum=1）
+  reasonable: true
+  # 支持通过 Mapper 接口参数来传递分页参数
+  # 默认值 false
+  supportMethodsArguments: true
+logging:
+  level:
+    root: info
+    com.example.demo003.dao: debug
+  pattern:
+  #    console: " tob %msg%n"
+  file:
+    path: "./"
+    max-history: 7
+    clean_history-on-start: true
+    name: "tob"
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="skcats">
+        <!-- Title -->
+        <title>修改密码</title>
+        <!-- Styles -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Theme Styles -->
+        <link href="assets/css/ecaps.min.css" rel="stylesheet">
+		<!-- 修改样式 -->
+		<style type="text/css">
+			.row{
+				background-image: url(assets/imgs/Tob_img/LV_M/LV_wrap/LV_M_P_002.jpg);
+				background-repeat: round;
+				display: flex;
+				position: relative;
+			}
+			.right-t{
+				text-align: center;
+				/* font-family: "楷体"; */
+				margin-top: 5%;
+				margin-left: 65%;
+			}
+			span{
+				color: red;
+			}
+		</style>
+		
+    </head>
+    <body>
+        
+        <!-- Page Container -->
+        <div class="page-container">
+                <!-- Page Inner -->
+                <div class="page-inner login-page">
+                    <div id="main-wrapper" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 login-box">
+                                <h4 class="login-title">修改密码</h4>
+                                <form action="login.html" id="myForm">
+                                    <div class="form-group">
+                                        <label >输入新密码：</label>
+                                        <input type="text" class="form-control" id="password1" onkeyup="checkPassword1(this)"><span id="l1"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>确认密码：</label>
+                                        <input type="text" class="form-control" id="password2" onkeyup="checkPassword2(this)"><span id="l2"></span>
+                                    </div>
+									<button class="btn btn-primary">确定</button>
+                                </form>
+                            </div>
+								<div class="right-t">
+									<h2>Tide of Business</h2>
+									<h3>潮易</h3>
+								</div>
+                        </div>
+                    </div>
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+        
+		<script>
+		    //用来检查名字是否合规
+		    function checkPassword1() {
+		        /*定义一个值拿到姓名输入框值的长度*/
+		        var length = password1.value.length
+		        if (length > 0) {//里面有内容
+		            //名字的大小应该在 8-12 之间（定义值的长度）
+		            if (length >= 8 && length <= 12 ) {
+		                l1.textContent = "😊"
+		                return true
+		            }
+		            //不在区间之内
+		            l1.textContent = "长度必须是8-12位"
+		            //必须return一个值，否则会被覆盖，return有中断的作用
+		            return false
+		        }
+		        //里面没有内容
+		        l1.textContent = "长度必须大于0"
+		        return false
+		    }
+		 
+		    //用来检查密码是否合规
+		    function checkPassword2() {
+		        var length = password2.value.length
+		        if (length > 0) {//里面有内容
+		            //名字的大小应该在 8-12 之间
+		            if (length >= 8 && length <= 12) {
+		                l2.textContent = "😊"
+		                return true
+		            }
+		            //不在区间之内
+		            l2.textContent = "长度必须在8-12之间"
+		            return false
+		        }
+		        //里面没有内容
+		        l2.textContent = "长度必须大于0"
+		        return false
+		    }
+		 
+		 function test(){
+			 var password01 = password1.value
+			 var password02 = password2.value
+			 if(password01 != password02){
+				 l2.textContent = "两次密码不一致"
+				 return false
+			 }
+			 return true
+		 }
+		    //添加提交事件(会具备返回值)
+		    myForm.onsubmit = () => {
+		        //阻止表单的提交  需要返回 false
+		        //有两种方法
+		        //第一种：return checkName()&&checkPwd()&&checkEmail()
+		        //第二种：
+		        var f1 = checkPassword1()
+		        var f2 = checkPassword2()
+				var f3 = test()
+		        return f1 && f2 && f3
+		    }
+		</script>
+    </body>
+</html>

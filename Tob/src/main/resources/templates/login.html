@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="skcats">
+        <!-- Title -->
+        <title>管理员账号登录界面</title>
+        <!-- Styles -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Theme Styles -->
+        <link href="assets/css/ecaps.min.css" rel="stylesheet">
+		<!-- 修改样式 -->
+		<style type="text/css">
+			.row{
+				background-image: url(assets/imgs/Tob_img/LV_W/LV_wrap/LV_W_P_002.jpg);
+				background-repeat: round;
+				display: flex;
+				position: relative;
+			}
+			.right-t{
+				text-align: center;
+				/* font-family: "楷体"; */
+				margin-top: 5%;
+				margin-left: 65%;
+			}
+			span{
+				color: red;
+			}
+		</style>
+		
+    </head>
+    <body>
+        
+        <!-- Page Container -->
+        <div class="page-container">
+                <!-- Page Inner -->
+                <div class="page-inner login-page">
+                    <div id="main-wrapper" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 login-box">
+                                <h4 class="login-title">登录您的账户</h4>
+                                <form action="index.html" id="myForm">
+                                    <div class="form-group">
+                                        <label >账号：</label>
+                                        <input type="text" class="form-control" id="userNum" onkeyup="checkNum(this)"><span id="l1"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >密码：</label>
+                                        <input type="password" class="form-control" id="password" onkeyup="checkPwd(this)" ><span id="l2"></span>
+                                    </div>
+									<a href="login_phone.html" class="btn btn-primary">短信登录</a>
+									<button class="btn btn-primary">登录</button>
+                                    <a href="register.html" class="btn btn-default">注册</a>
+									<br>
+                                    <a href="forget.html" class="forgot-link">忘记密码?</a>
+                                </form>
+                            </div>
+								<div class="right-t">
+									<h1>Tide of Business</h1>
+									<h2>潮易</h2>
+								</div>
+                        </div>
+                    </div>
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+		<script>
+		    function checkNum() {
+		        var length = userNum.value.length
+		        if (length > 0) {
+		            if (length == 11 ) {
+		                l1.textContent = "😊"
+		                return true
+		            }
+		            l1.textContent = "账号有误"
+		            return false
+		        }
+		        l1.textContent = "请输入账号"
+		        return false
+		    }
+		    function checkPwd() {
+		        var length = password.value.length
+		        if (length > 0) {
+		            if (length >= 8 && length <= 12) {
+		                l2.textContent = "😊"
+		                return true
+		            }
+		            l2.textContent = "长度必须在8-12之间"
+		            return false
+		        }
+		        l2.textContent = "请输入密码"
+		        return false
+		    }
+		    myForm.onsubmit = () => {
+		        var f1 = checkNum()
+		        var f2 = checkPwd()
+		        return f1 && f2 
+		    }
+		</script>
+		
+    </body>
+</html>
